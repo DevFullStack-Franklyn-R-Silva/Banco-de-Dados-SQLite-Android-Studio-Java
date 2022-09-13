@@ -38,7 +38,11 @@ public class MainActivity extends AppCompatActivity {
             bancoDados.execSQL("INSERT INTO pessoas(nome, idade) VALUES ('Silva', 18)");
 
             //Update do dados
-            bancoDados.execSQL("UPDATE pessoas SET idade = 19, nome = 'Mariana Silva'  WHERE nome = 'Mariana'");
+//            bancoDados.execSQL("UPDATE pessoas SET idade = 19, nome = 'Mariana Santos'  WHERE id = 3");
+
+            //DELETE dado
+            bancoDados.execSQL("DELETE FROM pessoas WHERE id = 10");
+//            bancoDados.execSQL("DELETE FROM pessoas ");
 
             //Recuperar pessoas
 //            String consulta =
@@ -67,8 +71,8 @@ public class MainActivity extends AppCompatActivity {
 //                    "SELECT nome, idade FROM pessoas " +
 //                            "WHERE 1=1 ORDER BY idade DESC";
             String consulta =
-                    "SELECT nome, idade FROM pessoas " +
-                            "WHERE nome = 'Mariana Silva'";
+                    "SELECT * FROM pessoas " +
+                            "WHERE 1=1";
 
             Cursor cursor = bancoDados.rawQuery(consulta, null);
 
@@ -84,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
                 String nome = cursor.getString(indiceNome);
                 String idade = cursor.getString(indiceIdade);
 
-                Log.i("Resultado - id" + id + " | nome: ", nome + " | idade: " + idade);
+                Log.i("Resultado - id " + id + " | nome ", nome + " | idade: " + idade);
 
                 cursor.moveToNext();
             }
