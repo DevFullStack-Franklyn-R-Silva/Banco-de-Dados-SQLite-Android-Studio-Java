@@ -26,6 +26,15 @@ public class MainActivity extends AppCompatActivity {
 //            bancoDados.execSQL("INSERT INTO pessoas(nome, idade) VALUES ('Franklyn', 24)");
 //            bancoDados.execSQL("INSERT INTO pessoas(nome, idade) VALUES ('Carlos', 30)");
 //            bancoDados.execSQL("INSERT INTO pessoas(nome, idade) VALUES ('Maria', 35)");
+//            bancoDados.execSQL("INSERT INTO pessoas(nome, idade) VALUES ('Paulo', 35)");
+//            bancoDados.execSQL("INSERT INTO pessoas(nome, idade) VALUES ('Ana', 50)");
+//            bancoDados.execSQL("INSERT INTO pessoas(nome, idade) VALUES ('Pedro', 65)");
+//            bancoDados.execSQL("INSERT INTO pessoas(nome, idade) VALUES ('Alex', 50)");
+//            bancoDados.execSQL("INSERT INTO pessoas(nome, idade) VALUES ('Luiz', 51)");
+//            bancoDados.execSQL("INSERT INTO pessoas(nome, idade) VALUES ('Roberto', 18)");
+//            bancoDados.execSQL("INSERT INTO pessoas(nome, idade) VALUES ('Mariana', 18)");
+//            bancoDados.execSQL("INSERT INTO pessoas(nome, idade) VALUES ('Mario', 18)");
+//            bancoDados.execSQL("INSERT INTO pessoas(nome, idade) VALUES ('Silva', 18)");
 
             //Recuperar pessoas
 //            String consulta =
@@ -34,10 +43,28 @@ public class MainActivity extends AppCompatActivity {
 //            String consulta =
 //                    "SELECT nome, idade FROM pessoas " +
 //                    "WHERE idade >= 30 OR idade = 24";
-
+//            String consulta =
+//                    "SELECT nome, idade FROM pessoas " +
+//                    "WHERE idade IN(24,30)";
+//            String consulta =
+//                    "SELECT nome, idade FROM pessoas " +
+//                            "WHERE nome IN('Carlos','Franklyn')";
+//            String consulta =
+//                    "SELECT nome, idade FROM pessoas " +
+//                            "WHERE idade BETWEEN 24 AND 35";
+//            String filtro = "mar";
+//            String consulta =
+//                    "SELECT nome, idade FROM pessoas " +
+//                            "WHERE nome LIKE '%" + filtro + "%'";
+//            String consulta =
+//                    "SELECT nome, idade FROM pessoas " +
+//                            "WHERE 1=1 ORDER BY nome ASC";
+//            String consulta =
+//                    "SELECT nome, idade FROM pessoas " +
+//                            "WHERE 1=1 ORDER BY idade DESC";
             String consulta =
                     "SELECT nome, idade FROM pessoas " +
-                    "WHERE idade IN(24,30)";
+                            "WHERE 1=1 ORDER BY nome ASC LIMIT 3";
 
             Cursor cursor = bancoDados.rawQuery(consulta, null);
 
@@ -51,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
                 String nome = cursor.getString(indiceNome);
                 String idade = cursor.getString(indiceIdade);
 
-                Log.i("Resultado - nome ", nome + " / idade: " + idade);
+                Log.i("Resultado - nome ", nome + " | idade: " + idade);
 
                 cursor.moveToNext();
             }
